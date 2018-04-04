@@ -6,11 +6,23 @@
 	<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h1>Quiz POC</h1>
-				<hr>
+	<div id="app">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Quiz POC (score {{score}})</h1>
+					<hr>
+				</div>
+			</div>
+
+			<div v-for="(q, index) in questions" class="row">
+				<div class="col-md-6 offset-md-3">
+					<h2>{{q.title}}</h2>
+					<p>{{q.desc}}</p>
+					<div class="btn-group">
+						<button v-for="a in q.answers" @click="updateScore(index,a.value)" class="btn btn-default">{{a.answer}}</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

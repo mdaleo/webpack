@@ -3,7 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
-	entry: './resources/app.js',
+	entry: './resources/js/app.js',
 	output: {
 		filename: 'app.js',
 		path: path.resolve(__dirname, 'js'),
@@ -21,5 +21,10 @@ module.exports = {
 	},
 	plugins: [
 		new ExtractTextPlugin('../css/app.css')
-	]
+	],
+	resolve: {
+		alias: {
+			'vue$': 'vue/dist/vue.esm.js'
+		}
+	}
 };
