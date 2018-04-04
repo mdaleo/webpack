@@ -16,12 +16,20 @@
 			</div>
 
 			<div v-for="(q, index) in questions" class="row">
-				<div class="col-md-6 offset-md-3">
+				<div class="col-md-6 offset-md-3 tac">
 					<h2>{{q.title}}</h2>
 					<p>{{q.desc}}</p>
 					
 					<div v-if="q.type == 'single'" class="btn-group">
-						<button v-for="a in q.answers" @click="singleScore(index,a.value)" class="btn btn-default">{{a.answer}}</button>
+						<button v-for="a in q.answers" v-model="q.score" @click="singleScore(index,a.value)" class="btn btn-default">{{a.answer}}</button>
+					</div>
+
+					<div v-if="q.type == 'multi'" class="btn-group">
+						<div v-for="(a, ai) in q.answers" class="checkbox mr15">
+							<label>
+								<input type="checkbox" :value="a" v-model="q.options" @change="multiScore(q)"> {{a.answer}}
+							</label>
+						</div>
 					</div>
 
 				</div>

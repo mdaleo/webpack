@@ -14,8 +14,17 @@ window.quiz = new Vue({
 		questions: questions
 	},
 	methods:{
-		changeScore(index, value){
+		singleScore(index, value){
 			this.questions[index].score = value;
+			this.active = index + 1;
+		},
+		multiScore(q){
+			var total = 0;
+			_.forEach(q.options, function(val){
+				total += val.value;
+			});
+			q.score = total;
+
 			this.active = index + 1;
 		}
 	},
