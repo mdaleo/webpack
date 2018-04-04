@@ -10,7 +10,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>Quiz POC (score {{score}})</h1>
+					<h1>Quiz POC (score {{score}}) | Slide {{active+1}}</h1>
 					<hr>
 				</div>
 			</div>
@@ -19,9 +19,11 @@
 				<div class="col-md-6 offset-md-3">
 					<h2>{{q.title}}</h2>
 					<p>{{q.desc}}</p>
-					<div class="btn-group">
-						<button v-for="a in q.answers" @click="updateScore(index,a.value)" class="btn btn-default">{{a.answer}}</button>
+					
+					<div v-if="q.type == 'single'" class="btn-group">
+						<button v-for="a in q.answers" @click="singleScore(index,a.value)" class="btn btn-default">{{a.answer}}</button>
 					</div>
+
 				</div>
 			</div>
 		</div>
