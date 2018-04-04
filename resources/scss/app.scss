@@ -1,10 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~animate.css/animate.css';
 
 $bg: rgb(230,230,230);
 
 // 00: UTILITY
 body{
 	background:$bg;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
 }
 .tac{
 	text-align: center;
@@ -29,4 +36,12 @@ body{
 }
 .mr15{
 	margin-right: 15px;
+}
+
+// 01: TRansitions
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to{
+  opacity: 0;
 }

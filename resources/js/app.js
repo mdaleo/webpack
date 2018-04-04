@@ -24,7 +24,6 @@ window.quiz = new Vue({
 				total += val.value;
 			});
 			q.score = total;
-
 			this.active = index + 1;
 		}
 	},
