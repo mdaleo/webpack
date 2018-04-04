@@ -15,7 +15,8 @@
 				</div>
 			</div>
 
-			<div v-if="active==index" v-for="(q, index) in questions" class="row">
+			<transition-group name="fade" mode="out-in">
+			<div v-if="active==index" v-for="(q, index) in questions" :key="active" class="row">
 				<div class="col-md-6 offset-md-3 tac">
 					<h2>{{q.title}}</h2>
 					<p>{{q.desc}}</p>
@@ -39,6 +40,7 @@
 
 				</div>
 			</div>
+		</transition-group>
 		</div>
 	</div>
 	<script src="js/app.js"></script>
