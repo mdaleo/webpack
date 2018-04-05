@@ -26,12 +26,13 @@ window.quiz = new Vue({
 			q.score = total;
 		},
 		startOver(){
-			var that = this;
-			var q = this.questions;
-			// _.forEach(q, function(key, val){
-			// 	that.questions[key].score = 0;
-			// });
+			// Reset questions
+			_.forEach(this.questions, function(q){
+				if (q.hasOwnProperty('options')) q.options = [];
+				q.score = 0;
+			});
 			this.active = 0;
+			return this.score;
 		}
 	},
 	computed:{
