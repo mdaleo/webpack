@@ -15,8 +15,8 @@
 				</div>
 			</div>
 
-			<transition-group name="fade" mode="out-in">
-			<div v-if="active==index" v-for="(q, index) in questions" :key="active" class="row">
+			<transition name="slide-fade" mode="out-in" tag="div">
+			<div v-if="active==index" v-for="(q, index) in questions" :key="index" class="row">
 				<div class="col-md-6 offset-md-3 tac">
 					<h2>{{q.title}}</h2>
 					<p>{{q.desc}}</p>
@@ -37,10 +37,15 @@
 							<button @click="active++" class="btn btn-default fr">Next</button>
 						</div>
 					</div>
+					
+					<!-- SUCCESS -->
+					<div v-if="q.type == 'success'" class="tac">
+						<button @click="startOver()" class="btn btn-default fr">Start Over</button>
+					</div>
 
 				</div>
 			</div>
-		</transition-group>
+		</transition>
 		</div>
 	</div>
 	<script src="js/app.js"></script>

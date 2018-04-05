@@ -34,4 +34,10 @@ window.questions = [
 			{answer: 'Disney world', value: 100},
 		]
 	},
+	{
+		title: 'Success!',
+		desc: 'This is the final slide',
+		type: 'success',
+		score: 0
+	},
 ];

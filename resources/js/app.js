@@ -24,7 +24,14 @@ window.quiz = new Vue({
 				total += val.value;
 			});
 			q.score = total;
-			this.active = index + 1;
+		},
+		startOver(){
+			var that = this;
+			var q = this.questions;
+			// _.forEach(q, function(key, val){
+			// 	that.questions[key].score = 0;
+			// });
+			this.active = 0;
 		}
 	},
 	computed:{
